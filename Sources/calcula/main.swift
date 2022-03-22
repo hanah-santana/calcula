@@ -7,37 +7,53 @@
 import Foundation
 import SwiftSoup
 
-print("     - Welcome to the Calculadora de Notas do IF! -")
-
 //TO-DO: Adicionar menu inicial para selecionar entre notas presentes na plataforma vs. adicionar notas manualmente. Opção de adicionar notas manualmente chama função armazena_notas()
 
-
+var n1:Double = 6
+var n2:Double = 6
 //TO-DO: Remover valores iniciais de n1 e n2
-var n1:Double = 0
-var n2:Double = 0
 
-var amoeba = true
+var loop = true
 
-while(amoeba){
-    print("Insira o numero correspondente a funcao que deseja utilizar:\n")
+print("       - Welcome to the Calculadora de Notas do IF! -\n")
+
+while(loop){
+    
     print("""
-    1 - Qual minha média final | 2 - Quanto devo tirar na N2 |
-    0 - Sair da aplicação\n
+    -------------------------- x Menu x ---------------------------
+    | 1 - Qual minha média        | 2 - Quanto devo tirar na N2   |
+    | 0 - Sair da aplicação       |                               |
+    ----------------------------- x -------------------------------\n
     """)
     
+    print("Insira o número correspondente a função que deseja utilizar: ",terminator:"")
+    
     let option = readLine()
+    print("")
     switch option{
     case "1":
-        media(n1: n1,n2: n2)
+        media(n1: n1, n2: n2)
+        executa()
     case "2":
         quantoN2(n1: n1)
+        executa()
     case "0":
-        amoeba = false
+        loop = false
     default:
-        print("Você não selecionou uma opção válida")
+        print("Você não selecionou uma opção válida.\n")
+        executa()
     }
 }
 
+func executa(){
+    print("Deseja executar novamente? (y - sim // n - não): ", terminator:"")
+    let input = readLine()
+    if(input == "n"){
+        loop = false
+    }else{
+        
+    }
+}
 
 //func armazena_notas(){
 //    //TO-DO: Fazer tratamento de possíveis múltiplas notas de cada etapa.
@@ -60,21 +76,24 @@ while(amoeba){
 
 func media(n1: Double, n2: Double){
     let media:Double = (2*n1 + 3*n2)/5
-    print("Nota final:",media)
-    if media < 7 {
+    print("Média Parcial:",media)
+    if (media < 7 && media >= 3) {
         let aval_final:Double = 10 - media
-        print("Infelizmente voce está de AF, meu parsero")
-        print("É necessário que você tire umeno um \(aval_final) pra passar. Faltou ... para passar direto. Precisava de ... na n2")
+        print("Infelizmente voce deve fazer a AVALIAÇÃO FINAL. :(")
+        print("É necessário que você tire \(aval_final) na Avaliação Final para ser aprovado.\n")
+    }else if(media < 3){
+        print("Você foi REPROVADO e não poderá fazer avaliação final\n")
     }
 }
+
 func quantoN2(n1: Double){
     let falta_n2 = (35 - 2*n1)/3
-    print("Tire umeno um",falta_n2,"pra passar, meu fi")
+    print("É necessário tirar",falta_n2,"para ser aprovado diretamente.")
     if falta_n2 > 10 {
         //let avaliacao_final = calculo da nota necessária p/ AF
         print("""
-                Você precisa fazer a prova final :(
-                Para ser aprovado, você precisa de ... na Avaliação Final
+                Você precisa fazer a AVALIAÇÃO FINAL :(
+                Para ser aprovado, você precisa de ... na Avaliação Final\n
         """)
     }
 }
