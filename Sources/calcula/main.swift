@@ -11,68 +11,73 @@ import SwiftSoup
 
 var n1:Double = 6
 var n2:Double = 6
+
+var soma_nota: Double = 0
+
+var notas: [Double] = []
 //TO-DO: Remover valores iniciais de n1 e n2
 
 var loop = true
+var count = 0
 
 print("       - Welcome to the Calculadora de Notas do IF! -\n")
 
 while(loop){
-    
     print("""
     -------------------------- x Menu x ---------------------------
     | 1 - Qual minha média        | 2 - Quanto devo tirar na N2   |
     | 0 - Sair da aplicação       |                               |
     ----------------------------- x -------------------------------\n
     """)
-    
+
     print("Insira o número correspondente a função que deseja utilizar: ",terminator:"")
-    
+
     let option = readLine()
     print("")
     switch option{
     case "1":
+        armazenaN1()
         media(n1: n1, n2: n2)
-        executa()
+        execucao()
     case "2":
         quantoN2(n1: n1)
-        executa()
+        execucao()
     case "0":
         loop = false
     default:
         print("Você não selecionou uma opção válida.\n")
-        executa()
+        execucao()
     }
 }
 
-func executa(){
-    print("Deseja executar novamente? (y - sim // n - não): ", terminator:"")
-    let input = readLine()
-    if(input == "n"){
-        loop = false
-    }else{
+func armazenaN1(){
+    //TO-DO: Fazer tratamento de possíveis múltiplas notas de cada etapa.
+    //TO-DO: Se count for igual a 0, não é possível calcular a nota.
+
+    print("Insira a(s) nota(s) da N1\n")
+    var loop2 = true
+    while(loop2){
+        count += 1
+        print("Insira nota \(count): ", terminator: "")
         
+        let input = readLine()!
+        n1 = Double(input) ?? 0
+        notas.append(n1)
+        
+        soma_nota = soma_nota + n1
+        
+        print("Deseja adicionar mais uma nota à N1? (y/n): ", terminator: "")
+        
+        let input2 = readLine()
+        if input2 == "n" || input2 == "N"{
+            loop2 = false
+        }
     }
+    print(notas)
+    n1 = soma_nota/Double(count)
+    print("Média N1: \(n1)")
+    //return n1 (especificar que esta função retorne double)
 }
-
-//func armazena_notas(){
-//    //TO-DO: Fazer tratamento de possíveis múltiplas notas de cada etapa.
-//    //Requisitos: O tratamento deve ser o mesmo do web scrapping.
-//
-//    //Ideia_1: O usuário insere a quantidade de notas da N1. Fazer um loop que rodará x vezes preenchendo um vetor de tamanho x. No final as notas do vetor serão somadas e divididas por x.
-//
-//    //Ideia_2: O usuário seleciona a opção de preencher manualmente e o programa já está em loop recebendo e armazenando em um array quantas notas o usuário quiser inserir, até que o usuário digite algo que não seja número e o programa saia do laço.
-//    //Sugestão p/ Ideia_2: Criar um array de 15 posições, as posições que não forem preenchidas durante o laço terão algum valor no array (que não sei qual é). Deve-se fazer um laço que conte as posições (e faça a soma das notas ao mesmo tempo) até chegar nesse valor do array que não foi preenchido, ao final da contagem, sabe-se o somatório das notas e a quantidade de notas, podendo assim fazer a média.
-//
-//    //    print("Insira a(s) nota(s) da N1")
-//    //    var input = readLine()
-//    //    n1 = Double(input) ?? 0
-//    //    //TO-DO: Calcular a média de notas da N1 (armazenar tudo num array e fazer a média)
-//    //    print("Insira a(s) nota(s) da N2")
-//    //    input = readLine()
-//    //    n2 = Double(input) ?? 0
-//      //     //TO-DO: Calcular a média de notas da N1 (armazenar tudo num array e fazer a média)
-//}
 
 func media(n1: Double, n2: Double){
     let media:Double = (2*n1 + 3*n2)/5
@@ -90,11 +95,22 @@ func quantoN2(n1: Double){
     let falta_n2 = (35 - 2*n1)/3
     print("É necessário tirar",falta_n2,"para ser aprovado diretamente.")
     if falta_n2 > 10 {
-        //let avaliacao_final = calculo da nota necessária p/ AF
         print("""
-                Você precisa fazer a AVALIAÇÃO FINAL :(
-                Para ser aprovado, você precisa de ... na Avaliação Final\n
+                Você precisa fazer a AVALIAÇÃO FINAL :(\n
         """)
     }
 }
 
+func execucao(){
+    print("Deseja executar novamente? (y - sim / n - não): ", terminator:"")
+    let input = readLine()
+    print("\n")
+    if(input == "n" || input == "N"){
+        loop = false
+    }else if(input == "y" || input == "Y"){
+        
+    }else{
+        print("Você não inseriu uma opção válida. O programa foi encerrado.")
+        loop = false
+    }
+}
