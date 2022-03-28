@@ -5,7 +5,6 @@
 //  Created by Hanah Santana on 17/03/22.
 //
 import Foundation
-//import SwiftSoup
 
 var n1:Float = 0
 var n2:Float = 0
@@ -38,20 +37,17 @@ while(loop){
     recebeNotas()
     n2 = nota
     media(n1: n1, n2: n2)
-    print("Média N1: \(media)")
-    execucao()
   case "2":
     print("Insira a(s) nota(s) da N1\n")
     recebeNotas()
     n1 = nota
     quantoN2(n1: n1)
-    execucao()
   case "0":
     loop = false
   default:
     print("Você não selecionou uma opção válida.\n")
-    execucao()
   }
+    execucao()
 }
 
 func recebeNotas(){
@@ -86,14 +82,15 @@ func recebeNotas(){
     } 
   }
 }
-//TO-DO: Modificar print aval_final
+
 func media(n1: Float, n2: Float){
   media = (2*n1 + 3*n2)/5
   print("Média Parcial:",media)
   if (media < 7 && media >= 3) {
       let aval_final:Float = 10 - media
       print("Infelizmente voce deve fazer a AVALIAÇÃO FINAL. :(")
-      print("É necessário que você tire \(aval_final) na Avaliação Final para ser aprovado.\n")
+      let msg_af = String(format: "É necessário que você tire %.2f na Avaliação Final para ser aprovado.\n", aval_final)
+      print(msg_af)
   }else if(media < 3){
       print("Você foi REPROVADO e não poderá fazer avaliação final\n")
   }
