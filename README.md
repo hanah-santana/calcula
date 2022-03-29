@@ -3,7 +3,7 @@
 
 Este programa calcula notas acadêmicas inseridas via CLI.
 
-Criado para facilitar os cálculos das notas de alunos do IFCE conforme o aluno está passando pelo tão temido "final de semestre", onde as notas são calculadas e recalculadas diversas vezes para saber se há possibilidade de ser aprovado, ou que nota é necessária na segunta etapa para tal. 
+Criado para facilitar os cálculos das notas de alunos do IFCE conforme o aluno está passando pelo tão temido "final de semestre", onde as notas são calculadas e recalculadas diversas vezes para saber se há possibilidade de ser aprovado, ou que nota é necessária na segunda etapa para tal. 
 
 Dessa forma, reduzindo a carga mental e o tempo necessário para averiguar as notas, evitando de colocar tudo na calculadora e lembrar da fórmula que o IFCE utiliza para calcular a média.
 
