@@ -1,7 +1,7 @@
 
 # Calculadora de Notas do IF
 
-Este programa é que calcula notas acadêmicas inseridas via CLI.
+Este programa calcula notas acadêmicas inseridas via CLI.
 
 Criado para facilitar os cálculos das notas de alunos do IFCE conforme o aluno está passando pelo tão temido "final de semestre", onde as notas são calculadas e recalculadas diversas vezes para saber se há possibilidade de ser aprovado, ou que nota é necessária na segunta etapa para tal. 
 
