@@ -6,10 +6,10 @@
 //
 import Foundation
 
-var n1:Float = 0
-var n2:Float = 0
+var n1: Float = 0
+var n2: Float = 0
 var nota: Float = 0
-var media:Float = 0
+var media: Float = 0
 
 var loop = true
 
@@ -61,21 +61,31 @@ func recebeNotas(){
         count += 1
         print("Insira nota \(count): ", terminator: "")
         
-        let input = readLine()!
-        nota = Float(input) ?? 0
+        // tratamento de entrada ainda no if statement
+        if let input = Float(readLine()!) {
+            nota = input
+        } else {
+            print("Digite uma nota válida.\n")
+            loop2 = false
+            break
+        }
+        
         soma_nota = soma_nota + nota
         
         print("Deseja adicionar mais uma nota? (y/n): ", terminator: "")
-        let input2 = readLine()!
         
-        if input2.lowercased() == "y"{
+        // criação de um switch case, pois haviam 3 estados possíveis de y, n e opçoes invalidas
+        switch(readLine()!) {
+        case "y":
             //NOTE: The loop runs the function to receive grades again.
-        }else if input2.lowercased() == "n"{
+            break
+        case "n":
             nota = soma_nota/Float(count)
             let msg_media = String(format: "Média das notas: %.2f", nota)
             print(msg_media)
             loop2 = false
-        }else{
+            break
+        default:
             print("\nVocê não digitou uma opção válida. Favor, inserir notas novamente.")
             recebeNotas()
             loop2 = false
