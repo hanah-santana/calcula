@@ -18,8 +18,9 @@ print("       - Welcome to the Calculadora de Notas do IF! -\n")
 
 while(loop){
     print("""
-  ------------------------- x Menu x ----------------------------
-  | 1 - Qual minha média        | 2 - Quanto devo tirar na N2   |
+  ---------x Menu x ----------------------------
+  | 1 - Qual minha média        |
+  | 2 - Quanto devo tirar na N2 |
   | 0 - Sair da aplicação       |                               |
   ----------------------------- x -------------------------------\n
   """)
