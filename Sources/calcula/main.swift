@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Hanah Santana on 17/03/22.
 //
@@ -23,9 +23,9 @@ while(loop){
   | 0 - Sair da aplicação       |                               |
   ----------------------------- x -------------------------------\n
   """)
-    
+
     print("Insira o número correspondente a função que deseja utilizar: ",terminator:"")
-    
+
     let option = readLine()
     print("")
     switch option{
@@ -51,31 +51,38 @@ while(loop){
 }
 
 func recebeNotas(){
-    
+
     var count = 0
     var soma_nota: Float = 0
-    
+
     var loop2 = true
-    
+
     while(loop2){
         count += 1
         print("Insira nota \(count): ", terminator: "")
-        
         let input = readLine()!
         nota = Float(input) ?? 0
+
+        if verifyIfTheNumberIsNegative(nota) == true {
+            print("\nVocê não é possível inserir números negativos. Favor, inserir notas novamente.")
+            recebeNotas()
+            loop2 = false
+        }
+
+
         soma_nota = soma_nota + nota
-        
+
         print("Deseja adicionar mais uma nota? (y/n): ", terminator: "")
         let input2 = readLine()!
-        
+
         if input2.lowercased() == "y"{
             //NOTE: The loop runs the function to receive grades again.
-        }else if input2.lowercased() == "n"{
+        } else if input2.lowercased() == "n"{
             nota = soma_nota/Float(count)
             let msg_media = String(format: "Média das notas: %.2f", nota)
             print(msg_media)
             loop2 = false
-        }else{
+        } else{
             print("\nVocê não digitou uma opção válida. Favor, inserir notas novamente.")
             recebeNotas()
             loop2 = false
@@ -119,3 +126,11 @@ func execucao(){
         execucao()
     }
 }
+
+func verifyIfTheNumberIsNegative(_ number: Float) -> Bool {
+    if number <= 0 {
+        return true
+    }
+    return false
+}
+
