@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Hanah Santana on 17/03/22.
 //
@@ -61,29 +61,39 @@ func recebeNotas(){
         count += 1
         print("Insira nota \(count): ", terminator: "")
         
-        let input = readLine()!
-        nota = Float(input) ?? 0
-        if nota < 0 || nota > 10 {
-            print("Insira um valor entre 0 e 10")
-            count -= 1
-        } else {
-            soma_nota = soma_nota + nota
+        if let input = readLine(), let notaValida = Float(input) {
+            nota = notaValida
             
-            print("Deseja adicionar mais uma nota? (y/n): ", terminator: "")
-            let input2 = readLine()!
-            
-            if input2.lowercased() == "y"{
-                //NOTE: The loop runs the function to receive grades again.
-            }else if input2.lowercased() == "n"{
-                nota = soma_nota/Float(count)
-                let msg_media = String(format: "Média das notas: %.2f", nota)
-                print(msg_media)
-                loop2 = false
-            }else{
-                print("\nVocê não digitou uma opção válida. Favor, inserir notas novamente.")
-                recebeNotas()
-                loop2 = false
+            if nota < 0 || nota > 10 {
+                print("Insira um valor entre 0 e 10")
+                count -= 1
+            } else {
+                soma_nota = soma_nota + nota
+                
+                print("Deseja adicionar mais uma nota? (y/n): ", terminator: "")
+                if let input2 = readLine() {
+                    if input2.lowercased() == "y"{
+                        //NOTE: The loop runs the function to receive grades again.
+                    }else if input2.lowercased() == "n"{
+                        nota = soma_nota/Float(count)
+                        let msg_media = String(format: "Média das notas: %.2f", nota)
+                        print(msg_media)
+                        loop2 = false
+                    }else{
+                        print("\nVocê não digitou uma opção válida. Favor, inserir notas novamente.")
+                        recebeNotas()
+                        loop2 = false
+                    }
+                } else {
+                    print("\nVocê não digitou uma opção válida. Favor, inserir a opção novamente")
+                    recebeNotas()
+                    loop2 = false
+                }
             }
+        } else {
+            print("\nNão conseguimos converter a nota digitada para número. Tente novamente\n")
+            recebeNotas()
+            loop2 = false
         }
     }
 }
@@ -113,14 +123,18 @@ func quantoN2(n1: Float){
 
 func execucao(){
     print("Deseja executar novamente? (y/n): ", terminator:"")
-    let input = readLine()!
-    print("\n")
-    if input.lowercased() == "y"{
-        //NOTE: The loop runs the switch case again.
-    }else if input.lowercased() == "n"{
-        loop = false
-    }else{
-        print("Você não inseriu uma opção válida.", terminator: " ")
-        execucao()
+    if let input = readLine() {
+        print("\n")
+        if input.lowercased() == "y"{
+            //NOTE: The loop runs the switch case again.
+        }else if input.lowercased() == "n"{
+            loop = false
+        }else{
+            print("Você não inseriu uma opção válida.", terminator: " ")
+            execucao()
+        }
+    } else {
+        print("Você não inseriu uma opção válida. Tente novamente")
     }
+
 }
