@@ -60,23 +60,28 @@ func getNote(){
         print("Insert note \(count): ", terminator: "")
         
         let input = readLine()!
+
         note = Float(input) ?? 0
-        sum_note = sum_note + note
+        if note < 0 || note > 10 {
+            print("Insira um valor entre 0 e 10")
+            count -= 1
+        } else {
+          sum_note = sum_note + note
         
-        print("Do you want to add one more note? (y/n): ", terminator: "")
-        let input2 = readLine()!
+          print("Do you want to add one more note? (y/n): ", terminator: "")
+          let input2 = readLine()!
         
-        if input2.lowercased() == "y"{
-            //NOTE: The loop runs the function to receive grades again.
-        }else if input2.lowercased() == "n"{
-            note = sum_note/Float(count)
-            let msg_media = String(format: "Grade average: %.2f", note)
-            print(msg_media)
-            loop2 = false
-        }else{
-            print("\nYou have not entered a valid option. Please enter notes again.")
-            getNote()
-            loop2 = false
+          if input2.lowercased() == "y"{
+              //NOTE: The loop runs the function to receive grades again.
+          }else if input2.lowercased() == "n"{
+              note = sum_note/Float(count)
+              let msg_media = String(format: "Grade average: %.2f", note)
+              print(msg_media)
+              loop2 = false
+          }else{
+              print("\nYou have not entered a valid option. Please enter notes again.")
+              getNote()
+              loop2 = false
         }
     }
 }
