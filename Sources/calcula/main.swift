@@ -63,22 +63,27 @@ func recebeNotas(){
         
         let input = readLine()!
         nota = Float(input) ?? 0
-        soma_nota = soma_nota + nota
-        
-        print("Deseja adicionar mais uma nota? (y/n): ", terminator: "")
-        let input2 = readLine()!
-        
-        if input2.lowercased() == "y"{
-            //NOTE: The loop runs the function to receive grades again.
-        }else if input2.lowercased() == "n"{
-            nota = soma_nota/Float(count)
-            let msg_media = String(format: "Média das notas: %.2f", nota)
-            print(msg_media)
-            loop2 = false
-        }else{
-            print("\nVocê não digitou uma opção válida. Favor, inserir notas novamente.")
-            recebeNotas()
-            loop2 = false
+        if nota < 0 || nota > 10 {
+            print("Insira um valor entre 0 e 10")
+            count -= 1
+        } else {
+            soma_nota = soma_nota + nota
+            
+            print("Deseja adicionar mais uma nota? (y/n): ", terminator: "")
+            let input2 = readLine()!
+            
+            if input2.lowercased() == "y"{
+                //NOTE: The loop runs the function to receive grades again.
+            }else if input2.lowercased() == "n"{
+                nota = soma_nota/Float(count)
+                let msg_media = String(format: "Média das notas: %.2f", nota)
+                print(msg_media)
+                loop2 = false
+            }else{
+                print("\nVocê não digitou uma opção válida. Favor, inserir notas novamente.")
+                recebeNotas()
+                loop2 = false
+            }
         }
     }
 }
