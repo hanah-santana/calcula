@@ -12,7 +12,46 @@ var note: Float = 0
 var average:Float = 0
 var loop = true
 
-print("       - Welcome to the Calculadora de Notas do IF! -\n")
+
+func Average(n1: Float, n2: Float) {
+    average = (2*n1 + 3*n2)/5
+    print("Partial Average:",average)
+    if (average < 7 && average >= 3) {
+        let finalEvaluation:Float = 10 - average
+        print("Unfortunately you must do the FINAL ASSESSMENT. :(")
+        let message_af = String(format: "You need to get a %.2f in the Final Assessment to be approved.\n", finalEvaluation)
+        print(message_af)
+    }else if(average < 3){
+        print("You were FAILED and will not be able to make a final assessment\n")
+    }
+}
+
+func getN2(n1: Float) {
+    let need_n2 = (35 - 2*n1)/3
+    if need_n2 > 10 {
+        print("You need more than 10.0 to pass directly, so you must do the FINAL ASSESSMENT :(\n")
+    }else{
+        let message_n2 = String(format: "You must take %.2f to pass.", need_n2)
+        print(message_n2)
+    }
+}
+
+func Execution() {
+    print("Do you want to run again? (y/n): ", terminator:"")
+    let input = readLine()!
+    print("\n")
+    if input.lowercased() == "y"{
+        //NOTE: The loop runs the switch case again.
+    }else if input.lowercased() == "n"{
+        loop = false
+    }else{
+        print("invalid option", terminator: " ")
+        Execution()
+    }
+}
+
+
+print("       - Welcome to the Grade Calculator do IF! -\n")
 
 while(loop){
     print("""
@@ -60,65 +99,66 @@ func getNote(){
         print("Insert note \(count): ", terminator: "")
         
         let input = readLine()!
-
+        
         note = Float(input) ?? 0
         if note < 0 || note > 10 {
-            print("Insira um valor entre 0 e 10")
+            print("Enter a value between 0 and 10")
             count -= 1
         } else {
-          sum_note = sum_note + note
-        
-          print("Do you want to add one more note? (y/n): ", terminator: "")
-          let input2 = readLine()!
-        
-          if input2.lowercased() == "y"{
-              //NOTE: The loop runs the function to receive grades again.
-          }else if input2.lowercased() == "n"{
-              note = sum_note/Float(count)
-              let msg_media = String(format: "Grade average: %.2f", note)
-              print(msg_media)
-              loop2 = false
-          }else{
-              print("\nYou have not entered a valid option. Please enter notes again.")
-              getNote()
-              loop2 = false
+            sum_note = sum_note + note
+            
+            print("Do you want to add one more note? (y/n): ", terminator: "")
+            let input2 = readLine()!
+            
+            if input2.lowercased() == "y"{
+                //NOTE: The loop runs the function to receive grades again.
+            } else if input2.lowercased() == "n"{
+                note = sum_note/Float(count)
+                let msg_media = String(format: "Grade average: %.2f", note)
+                print(msg_media)
+                loop2 = false
+            } else {
+                print("\nYou have not entered a valid option. Please enter notes again.")
+                getNote()
+                loop2 = false
+            }
         }
     }
-}
-
-func Average(n1: Float, n2: Float){
-    average = (2*n1 + 3*n2)/5
-    print("Média Parcial:",average)
-    if (average < 7 && average >= 3) {
-        let finalEvaluation:Float = 10 - average
-        print("Unfortunately you must do the FINAL ASSESSMENT. :(")
-        let message_af = String(format: "You need to get a %.2f in the Final Assessment to be approved.\n", finalEvaluation)
-        print(message_af)
-    }else if(average < 3){
-        print("You were FAILED and will not be able to make a final assessment\n")
+    
+    func Average(n1: Float, n2: Float) {
+        average = (2*n1 + 3*n2)/5
+        print("Partial Average:",average)
+        if (average < 7 && average >= 3) {
+            let finalEvaluation:Float = 10 - average
+            print("Unfortunately you must do the FINAL ASSESSMENT. :(")
+            let message_af = String(format: "You need to get a %.2f in the Final Assessment to be approved.\n", finalEvaluation)
+            print(message_af)
+        } else if(average < 3){
+            print("You were FAILED and will not be able to make a final assessment\n")
+        }
     }
-}
-
-func getN2(n1: Float){
-    let need_n2 = (35 - 2*n1)/3
-    if need_n2 > 10 {
-        print("You need more than 10.0 to pass directly, so you must do the FINAL ASSESSMENT :(\n")
-    }else{
-        let message_n2 = String(format: "You must take %.2f to pass.", need_n2)
-        print(message_n2)
+    
+    func getN2(n1: Float) {
+        let need_n2 = (35 - 2*n1)/3
+        if need_n2 > 10 {
+            print("You need more than 10.0 to pass directly, so you must do the FINAL ASSESSMENT :(\n")
+        } else {
+            let message_n2 = String(format: "You must take %.2f to pass.", need_n2)
+            print(message_n2)
+        }
     }
-}
-
-func Execution(){
-    print("Do you want to run again? (y/n): ", terminator:"")
-    let input = readLine()!
-    print("\n")
-    if input.lowercased() == "y"{
-        //NOTE: The loop runs the switch case again.
-    }else if input.lowercased() == "n"{
-        loop = false
-    }else{
-        print("invalid option", terminator: " ")
-        Execution()
+    
+    func Execution() {
+        print("Do you want to run again? (y/n): ", terminator:"")
+        let input = readLine()!
+        print("\n")
+        if input.lowercased() == "y"{
+            //NOTE: The loop runs the switch case again.
+        }else if input.lowercased() == "n"{
+            loop = false
+        }else{
+            print("invalid option", terminator: " ")
+            Execution()
+        }
     }
 }
