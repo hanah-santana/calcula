@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Hanah Santana on 17/03/22.
 //
@@ -54,34 +54,37 @@ func getNote(){
     var sum_note: Float = 0
     
     var loop2 = true
-    
+
     while(loop2){
         count += 1
+
         print("Insert note \(count): ", terminator: "")
         
         let input = readLine()!
 
         note = Float(input) ?? 0
-        if note < 0 || note > 10 {
-            print("Insira um valor entre 0 e 10")
-            count -= 1
-        } else {
-          sum_note = sum_note + note
+         if verifyIfTheNumberIsNegative(nota) && nota <= 10 {
+            print("\nPlease insert a value between 0 and 10.")
+            recebeNotas()
+            loop2 = false
+        }
         
-          print("Do you want to add one more note? (y/n): ", terminator: "")
-          let input2 = readLine()!
-        
-          if input2.lowercased() == "y"{
-              //NOTE: The loop runs the function to receive grades again.
-          }else if input2.lowercased() == "n"{
-              note = sum_note/Float(count)
-              let msg_media = String(format: "Grade average: %.2f", note)
-              print(msg_media)
-              loop2 = false
-          }else{
-              print("\nYou have not entered a valid option. Please enter notes again.")
-              getNote()
-              loop2 = false
+        sum_note = sum_note + note
+
+        print("Do you want to add one more note? (y/n): ", terminator: "")
+        let input2 = readLine()!
+
+        if input2.lowercased() == "y"{
+            //NOTE: The loop runs the function to receive grades again.
+        }else if input2.lowercased() == "n"{
+            note = sum_note/Float(count)
+            let msg_media = String(format: "Grade average: %.2f", note)
+            print(msg_media)
+            loop2 = false
+        }else{
+            print("\nYou have not entered a valid option. Please enter notes again.")
+            getNote()
+            loop2 = false
         }
     }
 }
@@ -122,3 +125,11 @@ func Execution(){
         Execution()
     }
 }
+
+func verifyIfTheNumberIsNegative(_ number: Float) -> Bool {
+    if number <= 0 {
+        return true
+    }
+    return false
+}
+
