@@ -103,9 +103,9 @@ func getNote(){
         
         note = Float(input) ?? 0
 
-         if verifyIfTheNumberIsNegative(nota) && nota <= 10 {
+         if verifyIfTheNumberIsNegative(note) && note <= 10 {
             print("\nPlease insert a value between 0 and 10.")
-            recebeNotas()
+            getNote()
             loop2 = false
         }
         
