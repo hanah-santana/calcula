@@ -4,12 +4,13 @@
 //
 //  Created by Hanah Santana on 17/03/22.
 //
+
 import Foundation
 
-var n1:Float = 0
-var n2:Float = 0
+var n1: Float = 0
+var n2: Float = 0
 var note: Float = 0
-var average:Float = 0
+var average: Float = 0
 var loop = true
 
 
@@ -38,7 +39,11 @@ func getN2(n1: Float) {
 
 func Execution() {
     print("Do you want to run again? (y/n): ", terminator:"")
-    let input = readLine()!
+    guard let input = readLine() else {
+        print("invalid option", terminator: " ")
+        Execution()
+        return
+    }
     print("\n")
     if input.lowercased() == "y"{
         //NOTE: The loop runs the switch case again.
@@ -93,27 +98,38 @@ func getNote(){
     var sum_note: Float = 0
     
     var loop2 = true
-
+    
     while(loop2){
         count += 1
-
+        
         print("Insert note \(count): ", terminator: "")
         
-        let input = readLine()!
+        guard let input = readLine(), let noteValid = Float(input) else {
+            print("\nPlease insert a value between 0 and 10.")
+            getNote()
+            loop2 = false
+            return
+        }
         
-        note = Float(input) ?? 0
-
-         if verifyIfTheNumberIsNegative(note) && note <= 10 {
+        note = noteValid
+        
+        if verifyIfTheNumberIsNegative(note) && note <= 10 {
             print("\nPlease insert a value between 0 and 10.")
             getNote()
             loop2 = false
         }
         
         sum_note = sum_note + note
-
+        
         print("Do you want to add one more note? (y/n): ", terminator: "")
-        let input2 = readLine()!
-
+        
+        guard let input2 = readLine() else {
+            print("\nYou have not entered a valid option. Please enter notes again.")
+            getNote()
+            loop2 = false
+            return
+        }
+        
         if input2.lowercased() == "y"{
             //NOTE: The loop runs the function to receive grades again.
         }else if input2.lowercased() == "n"{
@@ -153,7 +169,12 @@ func getNote(){
     
     func Execution() {
         print("Do you want to run again? (y/n): ", terminator:"")
-        let input = readLine()!
+        
+        guard let input = readLine() else {
+            print("invalid option", terminator: " ")
+            Execution()
+            return
+        }
         print("\n")
         if input.lowercased() == "y"{
             //NOTE: The loop runs the switch case again.
@@ -172,4 +193,3 @@ func verifyIfTheNumberIsNegative(_ number: Float) -> Bool {
     }
     return false
 }
-
