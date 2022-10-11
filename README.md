@@ -52,10 +52,10 @@ Inicia-se com um menu possuindo as seguintes opções:
 
 1. Dê um Fork nesse repositório através do GitHub
 
-2. Crie uma branch de Development, Feature ou de Bug
+2. Crie uma branch develop
 
 ```
-git checkout -b [your-branch]
+git checkout -b develop
 ```
 
 3. Dê um Commit nas suas alterações
@@ -63,7 +63,8 @@ git checkout -b [your-branch]
 4. Dê um Push na sua branch
 
 ```
-git push origin [your-branch]
+git push
 ```
+5. Provavelmente, seu push não dará certo, copie o código que o git deu ao tentar fazer o push, cole e dê enter
 
 Boa sorte ✨
