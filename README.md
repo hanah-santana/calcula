@@ -8,6 +8,9 @@ Criado para facilitar os cálculos das notas de alunos do IFCE conforme o aluno 
 Dessa forma, reduzindo a carga mental e o tempo necessário para averiguar as notas, evitando de colocar tudo na calculadora e lembrar da fórmula que o IFCE utiliza para calcular a média.
 
 
+## Pré-requisitos e como rodar a aplicação/testes
+
+Antes de utiliizar a CLI, você vai precisar ter instalado em sua máquina MacOs a ferramenta Xcode.
 
 
 ## Funcionalidades
@@ -17,10 +20,13 @@ Dessa forma, reduzindo a carga mental e o tempo necessário para averiguar as no
 - Cálculo da nota necessária para aprovação caso precise de Avaliação Final
 - Avisos caso o aluno precise fazer Avaliação Final
 
+## Ferramentas Utilizadas 🛠
 
+As seguintes ferramentas foram usadas na construção do projeto:
 
-
-
+- [Terminator](https://www.folkstalk.com/2022/10/swift-print-with-terminator-with-code-examples.html)
+- [While, Switch](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html)
+- [readLine](https://developer.apple.com/documentation/swift/readline(strippingnewline:))
 
 ## Como Funciona
 
@@ -39,11 +45,14 @@ Inicia-se com um menu possuindo as seguintes opções:
     Em suma: Calcula a média parcial a partir das notas N1 e N2. Indica se foi aprovado ou não, e caso não esteja diretamente aprovado, indica qual nota é necessária na Avaliação Final para que o aluno seja aprovado.
 
 2- Quanto tirar na N2
+
     Ao selecionar esta opção, o programa recebe as notas da mesma maneira que a função anterior.
 
     Ao receber a(s) nota(s), será feito o cálculo necessário para dar o valor da nota da N2 necessária para a aprovação.
     
     Em suma: Calcula quanto o aluno precisa de nota na N2 a partir da nota (ou média das notas) da primeira etapa. Caso a nota necessária seja maior que 10.0, o programa indica que o aluno deve fazer Avaliação Final, e mostra a nota necessária nesta avaliação.
+    
+    
 ## Autores
 
 - [@hanahsantana6](https://github.com/hanahsantana6)
