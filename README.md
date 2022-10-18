@@ -8,6 +8,9 @@ Criado para facilitar os cálculos das notas de alunos do IFCE conforme o aluno 
 Dessa forma, reduzindo a carga mental e o tempo necessário para averiguar as notas, evitando de colocar tudo na calculadora e lembrar da fórmula que o IFCE utiliza para calcular a média.
 
 
+## Pré-requisitos e como rodar a aplicação/testes
+
+Antes de utiliizar a CLI, você vai precisar ter instalado em sua máquina MacOs a ferramenta Xcode.
 
 
 ## Funcionalidades
@@ -17,10 +20,13 @@ Dessa forma, reduzindo a carga mental e o tempo necessário para averiguar as no
 - Cálculo da nota necessária para aprovação caso precise de Avaliação Final
 - Avisos caso o aluno precise fazer Avaliação Final
 
+## Ferramentas Utilizadas 🛠
 
+As seguintes ferramentas foram usadas na construção do projeto:
 
-
-
+- [Terminator](https://www.folkstalk.com/2022/10/swift-print-with-terminator-with-code-examples.html)
+- [While, Switch](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html)
+- [readLine](https://developer.apple.com/documentation/swift/readline(strippingnewline:))
 
 ## Como Funciona
 
@@ -39,11 +45,14 @@ Inicia-se com um menu possuindo as seguintes opções:
     Em suma: Calcula a média parcial a partir das notas N1 e N2. Indica se foi aprovado ou não, e caso não esteja diretamente aprovado, indica qual nota é necessária na Avaliação Final para que o aluno seja aprovado.
 
 2- Quanto tirar na N2
+
     Ao selecionar esta opção, o programa recebe as notas da mesma maneira que a função anterior.
 
     Ao receber a(s) nota(s), será feito o cálculo necessário para dar o valor da nota da N2 necessária para a aprovação.
     
     Em suma: Calcula quanto o aluno precisa de nota na N2 a partir da nota (ou média das notas) da primeira etapa. Caso a nota necessária seja maior que 10.0, o programa indica que o aluno deve fazer Avaliação Final, e mostra a nota necessária nesta avaliação.
+    
+    
 ## Autores
 
 - [@hanahsantana6](https://github.com/hanahsantana6)
@@ -68,3 +77,13 @@ git push
 5. Provavelmente, seu push não dará certo, copie o código que o git deu ao tentar fazer o push, cole e dê enter
 
 Boa sorte ✨
+
+# Licença
+
+Copyright (c) 2011-2022 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
