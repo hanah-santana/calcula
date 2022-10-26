@@ -34,23 +34,23 @@ Inicia-se com um menu possuindo as seguintes opções:
 
 1 - Média Parcial
 
-    Ao selecionar esta opção, o programa irá requisitar as notas da 1° etapa e fornecerá a opção de continuar adicionando.
+- Ao selecionar esta opção, o programa irá requisitar as notas da 1° etapa e fornecerá a opção de continuar adicionando.
 
-    Deve-se colocar 'y' caso queira adicionar mais uma nota àquela mesma etapa e 'n' caso não deseje mais adicionar notas.
+- Deve-se colocar 'y' caso queira adicionar mais uma nota àquela mesma etapa e 'n' caso não deseje mais adicionar notas.
 
-    Ao selecionar 'n', o programa passará a requisitar as notas da 2° etapa da mesma maneira.
+- Ao selecionar 'n', o programa passará a requisitar as notas da 2° etapa da mesma maneira.
 
-    Ao receber as notas, o programa fará a média das notas da etapa e utilizará ambas as médias no cálculo da Média Parcial após receber as notas referentes a N2 da mesma forma.
+- Ao receber as notas, o programa fará a média das notas da etapa e utilizará ambas as médias no cálculo da Média Parcial após receber as notas referentes a N2 da mesma forma.
 
-    Em suma: Calcula a média parcial a partir das notas N1 e N2. Indica se foi aprovado ou não, e caso não esteja diretamente aprovado, indica qual nota é necessária na Avaliação Final para que o aluno seja aprovado.
+Em suma: Calcula a média parcial a partir das notas N1 e N2. Indica se foi aprovado ou não, e caso não esteja diretamente aprovado, indica qual nota é necessária na Avaliação Final para que o aluno seja aprovado.
 
 2- Quanto tirar na N2
 
-    Ao selecionar esta opção, o programa recebe as notas da mesma maneira que a função anterior.
+- Ao selecionar esta opção, o programa recebe as notas da mesma maneira que a função anterior.
 
-    Ao receber a(s) nota(s), será feito o cálculo necessário para dar o valor da nota da N2 necessária para a aprovação.
-    
-    Em suma: Calcula quanto o aluno precisa de nota na N2 a partir da nota (ou média das notas) da primeira etapa. Caso a nota necessária seja maior que 10.0, o programa indica que o aluno deve fazer Avaliação Final, e mostra a nota necessária nesta avaliação.
+- Ao receber a(s) nota(s), será feito o cálculo necessário para dar o valor da nota da N2 necessária para a aprovação.
+
+- Em suma: Calcula quanto o aluno precisa de nota na N2 a partir da nota (ou média das notas) da primeira etapa. Caso a nota necessária seja maior que 10.0, o programa indica que o aluno deve fazer Avaliação Final, e mostra a nota necessária nesta avaliação.
     
     
 ## Autores
